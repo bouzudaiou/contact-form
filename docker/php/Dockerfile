@@ -11,3 +11,17 @@ RUN curl -sS https://getcomposer.org/installer | php \
   && composer self-update
 
 WORKDIR /var/www
+
+# ホストのUID/GIDと一致させるための引数（デフォルト値：1000）
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+# ホストと同じUID/GIDでユーザーとグループを作成
+RUN groupadd -g $GROUP_ID laravel \
+  && useradd -u $USER_ID -g laravel -m -s /bin/bash laravel
+
+# 作業ディレクトリの所有権をlaravelユーザーに付与
+RUN chown -R laravel:laravel /var/www
+
+# 以降の処理はlaravelユーザーで実行
+USER laravel
