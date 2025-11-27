@@ -16,5 +16,10 @@ class ContactController extends Controller
     $form = $request->only(['name', 'email', 'tel', 'content']);
         return view('confirm', ['form' => $form]);
     }
+
+    public function thanks(Request $request)
+    {
+        return view('thanks');
+    }
 }
 
