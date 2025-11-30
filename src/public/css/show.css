@@ -1,0 +1,90 @@
+.contact-show__content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.contact-show__heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-show__heading h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-show__detail {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.detail-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 200px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
+    border-right: 1px solid #ddd;
+}
+
+.detail-value {
+    flex: 1;
+    padding: 20px;
+    color: #333;
+}
+
+.detail-value.content {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.contact-show__actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-back {
+    background-color: #333;
+    color: #fff;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .detail-row {
+        flex-direction: column;
+    }
+
+    .detail-label {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}

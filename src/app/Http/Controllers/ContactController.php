@@ -25,5 +25,16 @@ class ContactController extends Controller
         Contact::create($form);
         return view('thanks');
     }
-}
 
+    public function list()
+    {
+        $contacts = Contact::all();
+        return view('list', ['contacts' => $contacts]);
+    }
+
+    public function show($id)
+    {
+        $contact = Contact::find($id);
+        return view('show', ['contact' => $contact]);
+    }
+}
