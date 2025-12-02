@@ -88,3 +88,10 @@
         border-bottom: 1px solid #ddd;
     }
 }
+.btn-edit {
+    background: #3498db;
+}
+
+.btn-edit:hover {
+    background: #2980b9;
+}

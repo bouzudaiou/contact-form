@@ -37,4 +37,19 @@ class ContactController extends Controller
         $contact = Contact::find($id);
         return view('show', ['contact' => $contact]);
     }
+
+    public function edit($id)
+    {
+        $contact = Contact::find($id);
+        return view('edit', ['contact' => $contact]);
+    }
+
+    public function update(ContactRequest $request, $id)
+    {
+        $form = $request->all();
+        Contact::find($id)->update($form);
+        return redirect("/contacts/{$id}");
+    }
+
 }
+

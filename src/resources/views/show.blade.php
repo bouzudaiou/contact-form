@@ -49,6 +49,7 @@
     
     <div class="contact-show__actions">
         <a href="/contacts" class="btn btn-back">一覧に戻る</a>
+        <a href="/contacts/{{ $contact->id }}/edit" class="btn btn-edit">編集</a>
     </div>
 </div>
 @endsection
