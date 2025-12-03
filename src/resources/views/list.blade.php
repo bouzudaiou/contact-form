@@ -33,5 +33,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="pagination-wrapper">
+        {{ $contacts->links('pagination::bootstrap-4') }}
+    </div>
 </div>
 @endsection

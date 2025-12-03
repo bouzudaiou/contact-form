@@ -28,7 +28,7 @@ class ContactController extends Controller
 
     public function list()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::paginate(10);
         return view('list', ['contacts' => $contacts]);
     }
 
