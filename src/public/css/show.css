@@ -95,3 +95,12 @@
 .btn-edit:hover {
     background: #2980b9;
 }
+
+.btn-delete {
+    background: #e74c3c;
+    color:#fff;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
