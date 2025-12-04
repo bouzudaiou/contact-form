@@ -35,6 +35,11 @@
             <div class="detail-label">お問い合わせ内容</div>
             <div class="detail-value content">{{ $contact->content }}</div>
         </div>
+
+        <div class="detail-row">
+            <div class="detail-label">カテゴリー</div>
+            <div class="detail-value">{{ $contact->category ? $contact->category->content : '未設定' }}</div>
+</div>
         
         <div class="detail-row">
             <div class="detail-label">作成日時</div>

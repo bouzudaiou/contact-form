@@ -60,6 +60,27 @@
           </div>
         </div>
         <div class="form__group">
+    <div class="form__group-title">
+        <span class="form__label--item">カテゴリー</span>
+        <span class="form__label--required">必須</span>
+    </div>
+    <div class="form__group-content">
+        <select name="category_id" class="form__input--select">
+            <option value="">選択してください</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->content }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form__error">
+        @error('category_id')
+            {{ $message }}
+        @enderror
+    </div>
+  </div>
+        <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">お問い合わせ内容</span>
           </div>

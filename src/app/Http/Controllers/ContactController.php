@@ -5,18 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Models\Category;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', ['categories' => $categories]);
     }
 
     public function confirm(ContactRequest $request)
     {
-    $form = $request->only(['name', 'email', 'tel', 'content']);
-        return view('confirm', ['form' => $form]);
+    $form = $request->only(['name', 'email', 'tel', 'content', 'category_id']);
+        $category = Category::find($form['category_id']);
+        return view('confirm', ['form' => $form, 'category' => $category]);
     }
 
     public function thanks(ContactRequest $request)
@@ -28,7 +31,7 @@ class ContactController extends Controller
 
     public function list()
     {
-        $contacts = Contact::paginate(10);
+        $contacts = Contact::with('category')->paginate(10);
         return view('list', ['contacts' => $contacts]);
     }
 
@@ -41,7 +44,8 @@ class ContactController extends Controller
     public function edit($id)
     {
         $contact = Contact::find($id);
-        return view('edit', ['contact' => $contact]);
+        $categories = Category::all();
+        return view('edit', ['contact' => $contact, 'categories' => $categories]);
     }
 
     public function update(ContactRequest $request, $id)
