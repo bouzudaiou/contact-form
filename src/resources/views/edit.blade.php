@@ -45,18 +45,18 @@
                 カテゴリー
                 <span class="edit-form__required">必須</span>
             </label>
-    <select class="edit-form__input" name="category_id">
-        <option value="">選択してください</option>
+        <select class="edit-form__input" name="category_id">
+            <option value="">選択してください</option>
         @foreach ($categories as $category)
             <option value="{{ $category->id }}" {{ old('category_id', $contact->category_id) == $category->id ? 'selected' : '' }}>
                 {{ $category->content }}
             </option>
         @endforeach
-    </select>
-    @error('category_id')
+        </select>
+        @error('category_id')
     <p class="edit-form__error">{{ $message }}</p>
     @enderror
-</div>
+    </div>
         <div class="edit-form__group">
             <label class="edit-form__label">
                 お問い合わせ内容

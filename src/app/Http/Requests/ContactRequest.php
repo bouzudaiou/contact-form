@@ -27,6 +27,7 @@ class ContactRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'tel' => 'required|numeric|digits_between:10,11',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 
@@ -43,6 +44,8 @@ class ContactRequest extends FormRequest
             'tel.required' => '電話番号は必須項目です。',
             'tel.numeric' => '電話番号は数字で入力してください。',
             'tel.digits_between' => '電話番号は10桁から11桁で入力してください。',
+            'category_id.required' => 'カテゴリーを選択してください。',
+            'category_id.exists' => '選択されたカテゴリーは無効です。',
         ];
     }
 }
