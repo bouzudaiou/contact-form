@@ -18,6 +18,7 @@
                 <th>電話番号</th>
                 <th>お問い合わせ内容</th>
                 <th>カテゴリー</th>
+                <th>タグ</th>
                 <th>作成日時</th>
             </tr>
         </thead>
@@ -30,6 +31,11 @@
                 <td>{{ $contact->tel }}</td>
                 <td>{{ Str::limit($contact->content, 30) }}</td>
                 <td>{{ $contact->category ? $contact->category->content : '未設定' }}</td>
+                <td>
+                    @foreach ($contact->tags as $tag)
+                    {{ $tag->name }}@if (!$loop->last), @endif
+                    @endforeach
+                </td>
                 <td>{{ $contact->created_at->format('Y-m-d H:i') }}</td>
             </tr>
             @endforeach

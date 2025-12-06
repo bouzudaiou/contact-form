@@ -74,6 +74,15 @@
             @endforeach
         </select>
     </div>
+    <div class="form-group">
+    <label>タグ</label>
+    @foreach ($tags as $tag)
+        <label>
+            <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}">
+            {{ $tag->name }}
+        </label>
+    @endforeach
+    </div>
     <div class="form__error">
         @error('category_id')
             {{ $message }}

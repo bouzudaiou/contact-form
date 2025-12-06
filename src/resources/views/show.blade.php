@@ -39,8 +39,17 @@
         <div class="detail-row">
             <div class="detail-label">カテゴリー</div>
             <div class="detail-value">{{ $contact->category ? $contact->category->content : '未設定' }}</div>
-</div>
+        </div>
         
+        <div class="detail-row">
+            <div class="detail-label">タグ</div>
+            <div class="detail-value">
+                @foreach ($contact->tags as $tag)
+                {{ $tag->name }}@if (!$loop->last), @endif
+                @endforeach
+            </div>
+       </div>
+       
         <div class="detail-row">
             <div class="detail-label">作成日時</div>
             <div class="detail-value">{{ $contact->created_at->format('Y-m-d H:i:s') }}</div>

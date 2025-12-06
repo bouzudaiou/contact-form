@@ -39,6 +39,17 @@
               </td>
             </tr>
             <tr class="confirm-table__row">
+              <th class="confirm-table__header">タグ</th>
+              <td class="confirm-table__text">
+              @foreach ($tags as $tag)
+              {{ $tag->name }}@if (!$loop->last), @endif
+              @endforeach
+              @foreach ($form['tag_ids'] as $tag_id)
+                <input type="hidden" name="tag_ids[]" value="{{ $tag_id }}">
+              @endforeach
+              </td>
+            </tr>
+            <tr class="confirm-table__row">
               <th class="confirm-table__header">お問い合わせ内容</th>
               <td class="confirm-table__text">
                 <input type="text" name="content" value="{{ $form['content'] }}" readonly />

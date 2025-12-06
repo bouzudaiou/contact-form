@@ -54,9 +54,19 @@
         @endforeach
         </select>
         @error('category_id')
-    <p class="edit-form__error">{{ $message }}</p>
-    @enderror
-    </div>
+        <p class="edit-form__error">{{ $message }}</p>
+        @enderror
+        </div>
+        <div class="edit-form__group">
+            <label class="edit-form__label">タグ</label>
+            @foreach ($tags as $tag)
+            <label>
+            <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}"
+                {{ $contact->tags->contains($tag->id) ? 'checked' : '' }}>
+            {{ $tag->name }}
+            </label>
+            @endforeach
+        </div>
         <div class="edit-form__group">
             <label class="edit-form__label">
                 お問い合わせ内容

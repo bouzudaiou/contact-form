@@ -14,9 +14,9 @@ class CreateContactTagTable extends Migration
     public function up()
     {
         Schema::create('contact_tag', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+            $table->foreignId('contact_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
+            });
     }
 
     /**
