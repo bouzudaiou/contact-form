@@ -17,7 +17,7 @@ use App\Http\Controllers\ContactController;
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
 Route::post('/contacts/thanks', [ContactController::class, 'thanks']);
-Route::get('/contacts', [ContactController::class, 'list']);
+Route::get('/contacts', [ContactController::class, 'list'])->middleware('log.access');;
 Route::get('/contacts/{id}', [ContactController::class, 'show']);
 Route::get('/contacts/{id}/edit', [ContactController::class, 'edit']);
 Route::patch('/contacts/{id}', [ContactController::class, 'update']);
