@@ -23,3 +23,6 @@ Route::get('/contacts/{id}/edit', [ContactController::class, 'edit']);
 Route::patch('/contacts/{id}', [ContactController::class, 'update']);
 Route::get('/contacts/{id}/delete', [ContactController::class, 'delete']);
 Route::delete('/contacts/{id}', [ContactController::class, 'destroy']);
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth');
